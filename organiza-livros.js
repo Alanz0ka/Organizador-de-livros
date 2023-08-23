@@ -7,7 +7,8 @@ class Livro{
         this.titulo = titulo;
         this.autor = autor;
         this.genero = genero;
-        
+        this.anoPublicacao = anoPublicacao;
+        this.sinopse = sinopse;
 
 
     }
