@@ -25,7 +25,7 @@ Este programa permite aos usuários organizar sua coleção de livros de forma e
 
 ## Exemplo de Uso
 
-- Ao iniciar o programa, você terá a opção de adicionar, pesquisar, editar ou remover livros.
+- Ao iniciar o programa, você terá a opção de adicionar, pesquisar, editar(funcionalidade em desenvolvimento) ou remover livros.
 - Ao adicionar um livro, siga as instruções para inserir as informações do livro.
 - Para pesquisar livros, insira um termo de pesquisa (título, autor ou gênero) e visualize os resultados.
 - Se desejar, você pode editar ou remover livros existentes na coleção.
