@@ -10,7 +10,7 @@ Este programa permite aos usuários organizar sua coleção de livros de forma e
 
 3. **Visualizar Detalhes**: Ao selecionar um livro na lista de resultados, os usuários podem ver os detalhes completos do livro, incluindo sua sinopse.
 
-4. **Editar Informações**: Os usuários podem editar as informações dos livros já cadastrados, permitindo atualizações quando necessário.
+4. **Editar Informações**: Os usuários podem editar as informações dos livros já cadastrados, permitindo atualizações quando necessário. Ainda não consegui conclui-lá.
 
 5. **Remover Livros**: Possibilidade de remover livros da biblioteca, excluindo-os permanentemente.
 
