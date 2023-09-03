@@ -1,0 +1,4 @@
+# Ele impede que arquivos desnecessários subam para o repositório
+package.json
+package-lock.json
+node_modules
