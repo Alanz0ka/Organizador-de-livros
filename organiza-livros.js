@@ -1,6 +1,6 @@
 const prompt = require("prompt-sync")();
 
-console.log(" \nSeja bem-vindo ao seu organizador de livros, aqui você poderá: \n adicionar, modificar, excluir e pesquisar os seus livros. \n")
+console.log(" \nSeja bem-vindo ao seu organizador de livros, aqui você poderá: \n adicionar, modificar(Em desenvolvimento), excluir e pesquisar os seus livros. \n")
 
 class Livro {
     constructor(titulo, autor, genero, anoPublicacao, sinopse) {
@@ -53,7 +53,7 @@ class Livro {
     }
   }
   
-  // Criando um novo objeto
+
   const organizador = new OrganizadorDeLivros();
   
   //Criando interação
