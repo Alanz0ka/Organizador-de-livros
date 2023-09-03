@@ -14,13 +14,12 @@ Este programa permite aos usuários organizar sua coleção de livros de forma e
 
 5. **Remover Livros**: Possibilidade de remover livros da biblioteca, excluindo-os permanentemente.
 
-6. **Interface Opcional**: Os alunos podem escolher entre criar uma interface de usuário usando HTML e CSS ou desenvolver uma aplicação de console para interações.
 
 ## Instruções de Uso
 
 - Execute o programa em um ambiente que suporte JavaScript, como um ambiente Node.js.
-- Siga as instruções apresentadas no console ou na interface gráfica para interagir com o programa.
-- Escolha as opções disponíveis para adicionar, pesquisar, editar ou remover livros da coleção.
+- Siga as instruções apresentadas no console para interagir com o programa.
+- Escolha as opções disponíveis para adicionar, pesquisar, editar (funcionalidade em desenvolvimento) ou remover livros da coleção.
 
 
 ## Exemplo de Uso
@@ -32,13 +31,13 @@ Este programa permite aos usuários organizar sua coleção de livros de forma e
 
 ## Requisitos
 
-- Ambiente que suporte JavaScript ( Node.js e instalar o prompt-snc).
+- Ambiente que suporte JavaScript ( Node.js e instalar o prompt-sync).
 
 ## Contribuições
 
 ### Lucas Silva: Criação das classes
 
-Foi dificil entender a a maneira como as classes e os construtores se comportam, levei um bom tempo para entender, utilizei as seguintes coisas:
+Foi dificil entender a maneira como as classes e os construtores se comportam, levei um bom tempo para entender, utilizei as seguintes coisas:
 
 [Como usar classes?](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Classes)
 
@@ -67,7 +66,7 @@ Fiz testes e resolvi alguns erros, o while  não saia do laço mesmo selecionand
 ## Ferramentas utilizadas
 
 - Visual Studio code
-- Live Share (Extensão de edição de código colaborativo)
+- Live Share (Extensão de edição de código colaborativo onde várias pessoas conseguem editar o código ao mesmo tempo)
 - ChatGpt(somente utilizado para retirar as dúvidas)
 - Youtube 
 - [Mozilla developer](https://developer.mozilla.org/pt-BR/) (site da mozilla onde se encontra diversos tutoriais)
