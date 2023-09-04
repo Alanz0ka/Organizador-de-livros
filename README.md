@@ -59,7 +59,7 @@ Estou enfrentando problemas para a criação do objeto de edição de livros, ut
 ### Alana de Gois Magalhães: Teste de fucionalidades
 
 
-Fiz testes e resolvi alguns erros, o while  não saia do laço mesmo selecionando a opção 4(sair), resolvi apenas colocando o return no final do código.
+Fiz testes e resolvi alguns erros, o while  não saia do laço mesmo selecionando a opção 5(sair), resolvi apenas colocando uma variavel no while e modificando o valor dela no final da opção.
 
 
 ## Ferramentas utilizadas
