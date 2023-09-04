@@ -48,7 +48,7 @@ Também pedi exemplos de utilização a ferramenta de IA da OpenAi, o ChatGpt, p
 
 Criei os objesto: adicinarLivro, PesquisarLivros, removerLivro;
 
-Estou enfrentando problemas para a criação do objeto de edição de livros, utilizei o chatGpt para a correçao de um no objeto pesquisarLivro, pois já estava a dois dias preso neste erro, ele usou metodo .filter (algo que eu não conhecia e nem havia utilizado), também vi alguns tutoriais sendo eles:
+Estou enfrentando problemas para a criação do objeto de edição de livros, utilizei o chatGpt para a correção de um erro no objeto pesquisarLivro, pois já estava a dois dias preso neste erro, ele usou metodo .filter (algo que eu não conhecia e nem havia utilizado), também vi alguns tutoriais sendo eles:
 
 [Funções em array js](https://www.youtube.com/watch?v=-f5E5Lhocuo)
 
@@ -61,7 +61,6 @@ Estou enfrentando problemas para a criação do objeto de edição de livros, ut
 
 Fiz testes e resolvi alguns erros, o while  não saia do laço mesmo selecionando a opção 4(sair), resolvi apenas colocando o return no final do código.
 
----
 
 ## Ferramentas utilizadas
 
