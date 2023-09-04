@@ -27,9 +27,9 @@ class Livro {
     }
   
     adicionarLivro() {
-      const titulo = prompt("Digite o título do livro:");
-      const autor = prompt("Digite o autor do livro:");
-      const genero = prompt("Digite o gênero do livro:");
+      const titulo = prompt("Digite o título do livro: ");
+      const autor = prompt("Digite o autor do livro: ");
+      const genero = prompt("Digite o gênero do livro: ");
       const anoPublicacao = prompt("Digite o ano de publicação do livro: ");
       const sinopse = prompt("Digite a sinopse do livro: ");
   
@@ -51,18 +51,30 @@ class Livro {
       this.livros = this.livros.filter(livro => livro.titulo !== titulo);
       console.log(`Livro "${titulo}" removido da coleção.`);
     }
+
+    // editarLivro: 
+    // function (nTitulo, nAutor, nGenero, nAno, nSinopse) {
+    //   this.titulo = nTitulo;
+    //   this.autor = nAutor;
+    //   this.genero = nGenero;
+    //   this.anoPublicacao = nAno;
+    //   this.sinopse = nSinopse;
+
   }
   
 
   const organizador = new OrganizadorDeLivros();
   
   //Criando interação
-  while (true) {
+
+  let seletor = true;
+  while (seletor === true) {
     const opcao = prompt(`Escolha uma opção:
     1. Adicionar Livro
     2. Pesquisar Livro
     3. Remover Livro
-    4. Sair
+    4. Editar
+    5. Sair
     :`);
   
     switch (opcao) {
@@ -82,8 +94,11 @@ class Livro {
         organizador.removerLivro(livroRemover);
         break;
       case "4":
-        console.log("Encerrando o programa.");
+        console.log("Desculpe, funcionalidade ainda em desenvolvimento");
         return;
+      case "5":
+        console.log("Encerrando o programa.");
+        seletor = false;
       default:
         console.log("Opção inválida.");
     }
