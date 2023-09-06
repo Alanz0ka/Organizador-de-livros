@@ -51,15 +51,6 @@ class Livro {
       this.livros = this.livros.filter(livro => livro.titulo !== titulo);
       console.log(`Livro "${titulo}" removido da coleção.`);
     }
-
-    // editarLivro: 
-    // function (nTitulo, nAutor, nGenero, nAno, nSinopse) {
-    //   this.titulo = nTitulo;
-    //   this.autor = nAutor;
-    //   this.genero = nGenero;
-    //   this.anoPublicacao = nAno;
-    //   this.sinopse = nSinopse;
-
   }
   
 
