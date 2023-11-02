@@ -2,6 +2,15 @@
 
 Este programa permite aos usuários organizar sua coleção de livros de forma eficiente.
 
+## Notas de Versão
+
+### Versão 1.1.0 (2023-11-02)
+
+- Adicionado suporte para edição de informações de livros.
+- Corrigido erro na função de pesquisa de livros.
+- Melhorias gerais de desempenho.
+
+
 ## Funcionalidades Principais
 
 1. **Adicionar Livros**: Os usuários podem inserir informações sobre novos livros, incluindo título, autor, gênero, ano de publicação e uma breve sinopse.
@@ -10,10 +19,55 @@ Este programa permite aos usuários organizar sua coleção de livros de forma e
 
 3. **Visualizar Detalhes**: Ao selecionar um livro na lista de resultados, os usuários podem ver os detalhes completos do livro, incluindo sua sinopse.
 
-4. **Editar Informações**: Os usuários podem editar as informações dos livros já cadastrados, permitindo atualizações quando necessário. Ainda não consegui conclui-lá.
+4. **Editar Informações**: Os usuários podem editar as informações dos livros já cadastrados, permitindo atualizações quando necessário.
 
 5. **Remover Livros**: Possibilidade de remover livros da biblioteca, excluindo-os permanentemente.
 
+## Novas Funcionalidades
+
+6. **Adicionar Livro de História em Quadrinhos (HQ)**: Contribuinte: Beatriz Matos
+   - **Descrição**: Esta funcionalidade permite aos usuários adicionar informações sobre livros de história em quadrinhos, incluindo título, autor, gênero, ano de publicação, sinopse, ilustrador e número de páginas de quadrinhos.
+   - **Exemplo de Código**:
+     ```javascript
+     class LivroHQ extends Livro {
+       constructor(titulo, autor, genero, anoPublicacao, sinopse, ilustrador, numPaginasQuadrinhos) {
+         super(titulo, autor, genero, anoPublicacao, sinopse);
+         this.ilustrador = ilustrador;
+         this.numPaginasQuadrinhos = numPaginasQuadrinhos;
+       }
+
+       exibirDetalhes() {
+         const detalhesLivroBase = super.exibirDetalhes();
+         return `
+         ${detalhesLivroBase}
+         Ilustrador: ${this.ilustrador}
+         Número de Páginas de Quadrinhos: ${this.numPaginasQuadrinhos}`;
+       }
+     }
+     ```
+     - **Explicação**: A classe `LivroHQ` é uma extensão da classe `Livro` e adiciona informações específicas para livros de história em quadrinhos, como ilustrador e número de páginas de quadrinhos.
+
+7. **Adicionar Livro de Não Ficção**: Contribuinte: José Alan
+   - **Descrição**: Os usuários podem agora adicionar livros de não ficção, informando título, autor, gênero, ano de publicação, sinopse, tópico e fontes de pesquisa.
+   - **Exemplo de Código**:
+     ```javascript
+     class LivroNaoFiccao extends Livro {
+       constructor(titulo, autor, genero, anoPublicacao, sinopse, topico, fontesPesquisa) {
+         super(titulo, autor, genero, anoPublicacao, sinopse);
+         this.topico = topico;
+         this.fontesPesquisa = fontesPesquisa;
+       }
+
+       exibirDetalhes() {
+         const detalhesLivroBase = super.exibirDetalhes();
+         return `
+         ${detalhesLivroBase}
+         Tópico: ${this.topico}
+         Fontes de Pesquisa: ${this.fontesPesquisa}`;
+       }
+     }
+     ```
+     - **Explicação**: A classe `LivroNaoFiccao` estende a classe `Livro` e inclui informações específicas para livros de não ficção, como tópico e fontes de pesquisa.
 
 ## Instruções de Uso
 
@@ -21,54 +75,41 @@ Este programa permite aos usuários organizar sua coleção de livros de forma e
 - Siga as instruções apresentadas no console para interagir com o programa.
 - Escolha as opções disponíveis para adicionar, pesquisar, editar (funcionalidade em desenvolvimento) ou remover livros da coleção.
 
-
 ## Exemplo de Uso
 
-- Ao iniciar o programa, você terá a opção de adicionar, pesquisar, editar(funcionalidade em desenvolvimento) ou remover livros.
+- Ao iniciar o programa, você terá a opção de adicionar, pesquisar, editar (funcionalidade em desenvolvimento) ou remover livros.
 - Ao adicionar um livro, siga as instruções para inserir as informações do livro.
 - Para pesquisar livros, insira um termo de pesquisa (título, autor ou gênero) e visualize os resultados.
 - Se desejar, você pode editar ou remover livros existentes na coleção.
 
 ## Requisitos
 
-- Ambiente que suporte JavaScript ( Node.js e instalar o prompt-sync).
+- Ambiente que suporte JavaScript (Node.js e instalar o prompt-sync).
 
 ## Contribuições
 
 ### Lucas Silva: Criação das classes
 
-Foi dificil entender a maneira como as classes e os construtores se comportam, levei um bom tempo para entender, utilizei as seguintes coisas:
+Lucas Silva é o criador das classes do programa e forneceu as bases para o desenvolvimento.
 
-[Como usar classes?](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Classes)
+### José Alan: Criação dos objetos e funcionalidade de Adicionar Livro de Não Ficção
 
-Também pedi exemplos de utilização a ferramenta de IA da OpenAi, o ChatGpt, pois estava com dúvidas de como usa-las
+José Alan criou os objetos Adicionar Livro, Pesquisar Livros, Remover Livro e adicionou a funcionalidade de adicionar livros de não ficção.
 
+### Alana de Gois Magalhães: Teste de funcionalidades
 
-### José Alan: Criação dos abjetos
+Alana testou o programa e resolveu vários erros, incluindo o problema do loop infinito ao tentar sair do programa.
 
-Criei os objesto: adicinarLivro, PesquisarLivros, removerLivro;
+### Beatriz Matos: Funcionalidade de Adicionar Livro de História em Quadrinhos (HQ)
 
-Estou enfrentando problemas para a criação do objeto de edição de livros, utilizei o chatGpt para a correção de um erro no objeto pesquisarLivro, pois já estava a dois dias preso neste erro, ele usou metodo .filter (algo que eu não conhecia e nem havia utilizado), também vi alguns tutoriais sendo eles:
+Beatriz Matos desenvolveu a funcionalidade de adicionar livros de história em quadrinhos e forneceu exemplos de código e explicações.
 
-[Funções em array js](https://www.youtube.com/watch?v=-f5E5Lhocuo)
+## Ferramentas Utilizadas
 
-[Como usar markdown para documentação](https://www.youtube.com/watch?v=Gcb60rPbnKA)
-
-[Como usar switch case em js](https://www.youtube.com/watch?v=EEStcIe8rAM)
-
-### Alana de Gois Magalhães: Teste de fucionalidades
-
-
-Fiz testes e resolvi alguns erros, o while  não saia do laço mesmo selecionando a opção 5(sair), resolvi apenas colocando uma variavel no while e modificando o valor dela no final da opção.
-
-
-## Ferramentas utilizadas
-
-- Visual Studio code
+- Visual Studio Code
 - Live Share (Extensão de edição de código colaborativo onde várias pessoas conseguem editar o código ao mesmo tempo)
-- ChatGpt(somente utilizado para retirar as dúvidas)
-- Youtube 
-- [Mozilla developer](https://developer.mozilla.org/pt-BR/) (site da mozilla onde se encontra diversos tutoriais)
-
+- ChatGpt (somente utilizado para retirar dúvidas)
+- YouTube
+- [Mozilla Developer](https://developer.mozilla.org/pt-BR/) (site da Mozilla onde se encontra diversos tutoriais)
 
 **Aproveite seu Organizador de Livros!**
