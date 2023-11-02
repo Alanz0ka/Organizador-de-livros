@@ -1,7 +1,5 @@
 const prompt = require("prompt-sync")();
 
-console.log(" \nSeja bem-vindo ao seu organizador de livros, aqui você poderá: \n adicionar, modificar, excluir e pesquisar os seus livros. \n");
-
 class Livro {
   constructor(titulo, autor, genero, anoPublicacao, sinopse) {
     this.titulo = titulo;
@@ -21,7 +19,55 @@ class Livro {
   }
 }
 
-class OrganizadorDeLivros {
+class LivroFiccao extends Livro {
+  constructor(titulo, autor, genero, anoPublicacao, sinopse, personagensPrincipais, mundoFicticio) {
+    super(titulo, autor, genero, anoPublicacao, sinopse);
+    this.personagensPrincipais = personagensPrincipais;
+    this.mundoFicticio = mundoFicticio;
+  }
+
+  exibirDetalhes() {
+    const detalhesLivroBase = super.exibirDetalhes();
+    return `
+    ${detalhesLivroBase}
+    Personagens Principais: ${this.personagensPrincipais}
+    Mundo Fictício: ${this.mundoFicticio}`;
+  }
+}
+
+class LivroNaoFiccao extends Livro {
+  constructor(titulo, autor, genero, anoPublicacao, sinopse, topico, fontesPesquisa) {
+    super(titulo, autor, genero, anoPublicacao, sinopse);
+    this.topico = topico;
+    this.fontesPesquisa = fontesPesquisa;
+  }
+
+  exibirDetalhes() {
+    const detalhesLivroBase = super.exibirDetalhes();
+    return `
+    ${detalhesLivroBase}
+    Tópico: ${this.topico}
+    Fontes de Pesquisa: ${this.fontesPesquisa}`;
+  }
+}
+
+class LivroHQ extends Livro {
+  constructor(titulo, autor, genero, anoPublicacao, sinopse, ilustrador, numPaginasQuadrinhos) {
+    super(titulo, autor, genero, anoPublicacao, sinopse);
+    this.ilustrador = ilustrador;
+    this.numPaginasQuadrinhos = numPaginasQuadrinhos;
+  }
+
+  exibirDetalhes() {
+    const detalhesLivroBase = super.exibirDetalhes();
+    return `
+    ${detalhesLivroBase}
+    Ilustrador: ${this.ilustrador}
+    Número de Páginas de Quadrinhos: ${this.numPaginasQuadrinhos}`;
+  }
+}
+
+class Biblioteca {
   constructor() {
     this.livros = [];
   }
@@ -33,35 +79,103 @@ class OrganizadorDeLivros {
     const anoPublicacao = prompt("Digite o ano de publicação do livro: ");
     const sinopse = prompt("Digite a sinopse do livro: ");
 
-    const livro = new Livro(titulo, autor, genero, anoPublicacao, sinopse);
+    if (titulo.trim() === "" || autor.trim() === "" || genero.trim() === "" || isNaN(anoPublicacao) || sinopse.trim() === "") {
+      console.log("Informações inválidas. Preencha todos os campos corretamente.");
+      return;
+    }
+
+    const livro = new Livro(titulo, autor, genero, parseInt(anoPublicacao), sinopse);
     this.livros.push(livro);
     console.log("Livro adicionado com sucesso!");
   }
 
-  pesquisarLivros(termo) {
-    const resultados = this.livros.filter((livro) =>
+  adicionarLivroFiccao() {
+    const titulo = prompt("Digite o título do livro de ficção: ");
+    const autor = prompt("Digite o autor do livro de ficção: ");
+    const genero = prompt("Digite o gênero do livro de ficção: ");
+    const anoPublicacao = prompt("Digite o ano de publicação do livro de ficção: ");
+    const sinopse = prompt("Digite a sinopse do livro de ficção: ");
+    const personagensPrincipais = prompt("Digite os personagens principais do livro de ficção: ");
+    const mundoFicticio = prompt("Digite o mundo fictício do livro de ficção: ");
+
+    if (titulo.trim() === "" || autor.trim() === "" || genero.trim() === "" || isNaN(anoPublicacao) || sinopse.trim() === "") {
+      console.log("Informações inválidas. Preencha todos os campos corretamente.");
+      return;
+    }
+
+    const livroFiccao = new LivroFiccao(titulo, autor, genero, parseInt(anoPublicacao), sinopse, personagensPrincipais, mundoFicticio);
+    this.livros.push(livroFiccao);
+    console.log("Livro de Ficção adicionado com sucesso!");
+  }
+
+  adicionarLivroNaoFiccao() {
+    const titulo = prompt("Digite o título do livro de não ficção: ");
+    const autor = prompt("Digite o autor do livro de não ficção: ");
+    const genero = prompt("Digite o gênero do livro de não ficção: ");
+    const anoPublicacao = prompt("Digite o ano de publicação do livro de não ficção: ");
+    const sinopse = prompt("Digite a sinopse do livro de não ficção: ");
+    const topico = prompt("Digite o tópico do livro de não ficção: ");
+    const fontesPesquisa = prompt("Digite as fontes de pesquisa do livro de não ficção: ");
+
+    if (titulo.trim() === "" || autor.trim() === "" || genero.trim() === "" || isNaN(anoPublicacao) || sinopse.trim() === "" || topico.trim() === "" || fontesPesquisa.trim() === "") {
+      console.log("Informações inválidas. Preencha todos os campos corretamente.");
+      return;
+    }
+
+    const livroNaoFiccao = new LivroNaoFiccao(titulo, autor, genero, parseInt(anoPublicacao), sinopse, topico, fontesPesquisa);
+    this.livros.push(livroNaoFiccao);
+    console.log("Livro de Não Ficção adicionado com sucesso!");
+  }
+
+  adicionarLivro() {
+    while (true) {
+        const titulo = prompt("Digite o título do livro: ");
+        const autor = prompt("Digite o autor do livro: ");
+        const genero = prompt("Digite o gênero do livro: ");
+        const anoPublicacao = prompt("Digite o ano de publicação do livro: ");
+        const sinopse = prompt("Digite a sinopse do livro: ");
+
+        if (titulo.trim() === "" || autor.trim() === "" || genero.trim() === "" || isNaN(anoPublicacao) || sinopse.trim() === "") {
+            console.log("Informações inválidas. Preencha todos os campos corretamente.");
+        } else {
+            const livro = new Livro(titulo, autor, genero, parseInt(anoPublicacao), sinopse);
+            this.livros.push(livro);
+            console.log("Livro adicionado com sucesso!");
+            break;
+        }
+    }
+}
+
+pesquisarLivros() {
+  const termo = prompt("Digite o termo de pesquisa: ");
+  const resultados = this.livros.filter((livro) =>
       livro.titulo.includes(termo) ||
       livro.autor.includes(termo) ||
       livro.genero.includes(termo)
-    );
-    return resultados;
+  );
+
+  if (resultados.length === 0) {
+      console.log("Nenhum livro correspondente encontrado.");
+  } else {
+      resultados.forEach((livro) => {
+          console.log(livro.exibirDetalhes());
+      });
+  }
+}
+
+  visualizarLivros() {
+    if (this.livros.length === 0) {
+      console.log("A biblioteca está vazia.");
+    } else {
+      this.livros.forEach((livro) => {
+        console.log(livro.exibirDetalhes());
+      });
+    }
   }
 
-  removerLivro(titulo) {
-    this.livros = this.livros.filter((livro) => livro.titulo !== titulo);
-    console.log(`Livro "${titulo}" removido da coleção.`);
-  }
-
-  editarLivro(titulo) {
+  editarLivro(titulo, novoTitulo, novoAutor, novoGenero, novoAnoPublicacao, novaSinopse) {
     const livroParaEditar = this.livros.find((livro) => livro.titulo === titulo);
     if (livroParaEditar) {
-      console.log("Editando informações do livro:");
-      const novoTitulo = prompt("Novo título (pressione Enter para manter o atual): ");
-      const novoAutor = prompt("Novo autor (pressione Enter para manter o atual): ");
-      const novoGenero = prompt("Novo gênero (pressione Enter para manter o atual): ");
-      const novoAnoPublicacao = prompt("Novo ano de publicação (pressione Enter para manter o atual): ");
-      const novaSinopse = prompt("Nova sinopse (pressione Enter para manter a atual): ");
-
       if (novoTitulo) {
         livroParaEditar.titulo = novoTitulo;
       }
@@ -83,43 +197,58 @@ class OrganizadorDeLivros {
       console.log(`Livro "${titulo}" não encontrado na coleção.`);
     }
   }
+
+  removerLivro(titulo) {
+    this.livros = this.livros.filter((livro) => livro.titulo !== titulo);
+    console.log(`Livro "${titulo}" removido da coleção.`);
+  }
 }
 
-const organizador = new OrganizadorDeLivros();
-
-// Criando interação
+const minhaBiblioteca = new Biblioteca();
 
 let seletor = true;
 while (seletor === true) {
-  const opcao = prompt(`Escolha uma opção:
+  console.log(`
+    Escolha uma opção:
     1. Adicionar Livro
-    2. Pesquisar Livro
-    3. Remover Livro
-    4. Editar Livro
-    5. Sair
-    :`);
+    2. Adicionar Livro de Ficção
+    3. Adicionar Livro de Não Ficção
+    4. Adicionar História em Quadrinhos
+    5. Pesquisar Livros
+    6. Visualizar Todos os Livros
+    7. Editar Livro
+    8. Remover Livro
+    9. Sair
+  `);
+
+  const opcao = prompt("Opção: ");
 
   switch (opcao) {
     case "1":
-      organizador.adicionarLivro();
+      minhaBiblioteca.adicionarLivro();
       break;
     case "2":
-      const termoPesquisa = prompt("Digite o termo de pesquisa: ");
-      const resultadosPesquisa = organizador.pesquisarLivros(termoPesquisa);
-      console.log(`Resultados da pesquisa para "${termoPesquisa}": `);
-      resultadosPesquisa.forEach((livro) => {
-        console.log(livro.exibirDetalhes());
-      });
+      minhaBiblioteca.adicionarLivroFiccao();
       break;
     case "3":
-      const livroRemover = prompt("Digite o título do livro a ser removido: ");
-      organizador.removerLivro(livroRemover);
+      minhaBiblioteca.adicionarLivroNaoFiccao();
       break;
     case "4":
-      const livroEditar = prompt("Digite o título do livro a ser editado: ");
-      organizador.editarLivro(livroEditar);
+      minhaBiblioteca.adicionarLivroHQ();
       break;
     case "5":
+      minhaBiblioteca.pesquisarLivros();
+      break;
+    case "6":
+      minhaBiblioteca.visualizarLivros();
+      break;
+    case "7":
+      minhaBiblioteca.editarLivro();
+      break;
+    case "8":
+      minhaBiblioteca.removerLivro();
+      break;
+    case "9":
       console.log("Encerrando o programa.");
       seletor = false;
       break;
