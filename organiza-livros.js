@@ -73,20 +73,23 @@ class Biblioteca {
   }
 
   adicionarLivro() {
-    const titulo = prompt("Digite o título do livro: ");
-    const autor = prompt("Digite o autor do livro: ");
-    const genero = prompt("Digite o gênero do livro: ");
-    const anoPublicacao = prompt("Digite o ano de publicação do livro: ");
-    const sinopse = prompt("Digite a sinopse do livro: ");
+    while (true) {
+        const titulo = prompt("Digite o título do livro (para sair do loop, só deixar vazio e pressionar enter):  ");
+        if (!titulo) break; //sai do loop se não tiver titulo
+        const autor = prompt("Digite o autor do livro: ");
+        const genero = prompt("Digite o gênero do livro: ");
+        const anoPublicacao = prompt("Digite o ano de publicação do livro: ");
+        const sinopse = prompt("Digite a sinopse do livro: ");
 
-    if (titulo.trim() === "" || autor.trim() === "" || genero.trim() === "" || isNaN(anoPublicacao) || sinopse.trim() === "") {
-      console.log("Informações inválidas. Preencha todos os campos corretamente.");
-      return;
+        if (titulo.trim() === "" || autor.trim() === "" || genero.trim() === "" || isNaN(anoPublicacao) || sinopse.trim() === "") {
+            console.log("Informações inválidas. Preencha todos os campos corretamente.");
+        } else {
+            const livro = new Livro(titulo, autor, genero, parseInt(anoPublicacao), sinopse);
+            this.livros.push(livro);
+            console.log("Livro adicionado com sucesso!");
+            break;
+        }
     }
-
-    const livro = new Livro(titulo, autor, genero, parseInt(anoPublicacao), sinopse);
-    this.livros.push(livro);
-    console.log("Livro adicionado com sucesso!");
   }
 
   adicionarLivroFiccao() {
@@ -125,6 +128,27 @@ class Biblioteca {
     const livroNaoFiccao = new LivroNaoFiccao(titulo, autor, genero, parseInt(anoPublicacao), sinopse, topico, fontesPesquisa);
     this.livros.push(livroNaoFiccao);
     console.log("Livro de Não Ficção adicionado com sucesso!");
+
+    
+  }
+
+  adicionarLivroHQ() {
+    const titulo = prompt("Digite o título do livro de HQ: ");
+    const autor = prompt("Digite o autor do livro de HQ: ");
+    const genero = prompt("Digite o gênero do livro de HQ: ");
+    const anoPublicacao = prompt("Digite o ano de publicação do livro de HQ: ");
+    const sinopse = prompt("Digite a sinopse do livro de HQ: ");
+    const ilustrador = prompt("Digite o ilustrador do livro de HQ: ");
+    const numPaginasQuadrinhos = prompt("Digite o número de páginas de quadrinhos: ");
+
+    if (titulo.trim() === "" || autor.trim() === "" || genero.trim() === "" || isNaN(anoPublicacao) || sinopse.trim() === "" || ilustrador.trim() === "" || isNaN(numPaginasQuadrinhos)) {
+      console.log("Informações inválidas. Preencha todos os campos corretamente.");
+      return;
+    }
+
+    const livroHQ = new LivroHQ(titulo, autor, genero, parseInt(anoPublicacao), sinopse, ilustrador, parseInt(numPaginasQuadrinhos));
+    this.livros.push(livroHQ);
+    console.log("Livro de HQ adicionado com sucesso!");
   }
 
   adicionarLivro() {
@@ -206,9 +230,16 @@ pesquisarLivros() {
     }
   }
 
-  removerLivro(titulo) {
-    this.livros = this.livros.filter((livro) => livro.titulo !== titulo);
-    console.log(`Livro "${titulo}" removido da coleção.`);
+  removerLivro() {
+    const titulo = prompt("Digite o título do livro que você deseja remover: ");
+    if (!titulo) return; // Retorna sem fazer nada se o título não for fornecido
+    const livroIndex = this.livros.findIndex((livro) => livro.titulo === titulo);
+    if (livroIndex !== -1) {
+      this.livros.splice(livroIndex, 1);
+      console.log(`Livro "${titulo}" removido da coleção.`);
+    } else {
+      console.log(`Livro "${titulo}" não encontrado na coleção.`);
+    }
   }
 }
 
