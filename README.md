@@ -1,4 +1,4 @@
-# Organizador de Livro - Documentação
+# Organizador de Livros - Documentação
 
 Este programa permite aos usuários organizar sua coleção de livros de forma eficiente.
 
@@ -9,7 +9,6 @@ Este programa permite aos usuários organizar sua coleção de livros de forma e
 - Adicionado suporte para edição de informações de livros.
 - Corrigido erro na função de pesquisa de livros.
 - Melhorias gerais de desempenho.
-
 
 ## Funcionalidades Principais
 
@@ -73,18 +72,18 @@ Este programa permite aos usuários organizar sua coleção de livros de forma e
 
 - Execute o programa em um ambiente que suporte JavaScript, como um ambiente Node.js.
 - Siga as instruções apresentadas no console para interagir com o programa.
-- Escolha as opções disponíveis para adicionar, pesquisar, editar (funcionalidade em desenvolvimento) ou remover livros da coleção.
+- Escolha as opções disponíveis para adicionar, pesquisar, editar ou remover livros da coleção.
 
 ## Exemplo de Uso
 
-- Ao iniciar o programa, você terá a opção de adicionar, pesquisar, editar (funcionalidade em desenvolvimento) ou remover livros.
+- Ao iniciar o programa, você terá a opção de adicionar, pesquisar, editar ou remover livros.
 - Ao adicionar um livro, siga as instruções para inserir as informações do livro.
 - Para pesquisar livros, insira um termo de pesquisa (título, autor ou gênero) e visualize os resultados.
 - Se desejar, você pode editar ou remover livros existentes na coleção.
 
 ## Requisitos
 
-- Ambiente que suporte JavaScript (Node.js e instalar o prompt-sync).
+- Ambiente que suporte JavaScript (Node.js) e instale a biblioteca `prompt-sync`.
 
 ## Contribuições
 
