@@ -173,8 +173,16 @@ pesquisarLivros() {
     }
   }
 
-  editarLivro(titulo, novoTitulo, novoAutor, novoGenero, novoAnoPublicacao, novaSinopse) {
+  editarLivro() {
+    const titulo = prompt("Qual é o título do livro que você deseja editar: ") 
+    const novoTitulo = prompt("Novo título:")
+    const novoAutor = prompt("Novo autor: ")
+    const novoGenero = prompt("Novo gênero: ")
+    const novoAnoPublicacao = prompt("Novo ano de publicação: ")
+    const novaSinopse = prompt("Nova sinopse: ")
+
     const livroParaEditar = this.livros.find((livro) => livro.titulo === titulo);
+
     if (livroParaEditar) {
       if (novoTitulo) {
         livroParaEditar.titulo = novoTitulo;
